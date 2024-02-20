@@ -32,7 +32,6 @@ export default function Robot({ coordinate, isPlaced, rotateDeg }: any) {
 
   const prevRotateDeg = usePrevious<number>(rotateDeg);
 
-  console.log("coordinate", coordinate);
   if (!isPlaced) return null;
 
   const { currentTransition, prevTransition } = createRobotTransition({
@@ -43,7 +42,6 @@ export default function Robot({ coordinate, isPlaced, rotateDeg }: any) {
     prevRotateDeg,
   });
 
-  console.log(prevTransition, currentTransition);
   return (
     <Spring from={{ ...prevTransition }} to={{ ...currentTransition }}>
       {(props: any) => (
